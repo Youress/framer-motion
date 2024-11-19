@@ -60,13 +60,31 @@ export default function Component() {
           className="max-w-4xl mx-auto"
           style={{ y }}
         >
-          <h2 className="text-4xl font-bold mb-8 text-center">
-            {isArabic ? "نجهز شيْ يعجبكم" : "Wait For It"}
-          </h2>
+          <AnimatePresence mode="wait">
+            <motion.h2
+              key={isArabic ? "arabic-h2" : "english-h2"}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.5, ease: "easeInOut" }}
+              className="text-4xl font-bold mb-8 text-center"
+            >
+              {isArabic ? "نجهز شيْ يعجبكم" : "Wait For It"}
+            </motion.h2>
+          </AnimatePresence>
           <div className="bg-gradient-to-r from-purple-500 to-pink-500 p-8 rounded-lg shadow-2xl mb-12">
-            <p className="text-2xl text-center">
-              {isArabic ? "محتوى مميز قادم" : "Exciting content coming soon"}
-            </p>
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={isArabic ? "arabic-p" : "english-p"}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                className="text-2xl text-center"
+              >
+                {isArabic ? "محتوى مميز قادم" : "Exciting content coming soon"}
+              </motion.p>
+            </AnimatePresence>
           </div>
           <div className="flex flex-wrap justify-between">
             <div className="w-full md:w-1/2 mb-8 md:mb-0">
@@ -82,10 +100,10 @@ export default function Component() {
                 {isArabic ? "تابعنا" : "Follow Us"}
               </h3>
               <div className="flex space-x-4">
-                <a href="#" className="text-2xl">📘</a>
-                <a href="#" className="text-2xl">📸</a>
-                <a href="#" className="text-2xl">🐦</a>
-                <a href="#" className="text-2xl">💼</a>
+                <a href="#" className="text-2xl" aria-label="Facebook">📘</a>
+                <a href="#" className="text-2xl" aria-label="Instagram">📸</a>
+                <a href="#" className="text-2xl" aria-label="Twitter">🐦</a>
+                <a href="#" className="text-2xl" aria-label="LinkedIn">💼</a>
               </div>
             </div>
           </div>
